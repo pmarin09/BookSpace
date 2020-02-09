@@ -1,0 +1,7 @@
+<div class="card"><%= image_tag @coworkingspaces.pic, class: "card-img-top" %></div>
+<p><%= @coworkingspaces.caption %></p>
+<%= link_to @coworkingspaces.user.email, @coworkingspaces.user %>
+<% if current_user == @coworkingspaces.user %>
+  <%= button_to "Delete", @coworkingspace, method: :delete %>
+  <%= button_to "Edit This Post", "/posts/#{@coworkingspace.id}/edit", :method => "get" %>
+<%end%>

@@ -1,0 +1,8 @@
+<%= form_with model: @coworkingspace do |f| %>
+<div> Name: <%= f.text_field :name,required: true %> </div>
+<div> Image: <%= f.file_field :pic, required: true %> </div>
+<div> Address: <%= f.text_area :address, required: true %> </div>
+<div> City: <%= f.text_field :city, required: true %> </div>
+<div> Amount of Spaces: <%= f.text_field :spaces_qty,required: true %> </div>
+<%= f.submit %>
+<%end%>

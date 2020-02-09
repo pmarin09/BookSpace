@@ -1,0 +1,10 @@
+<ul class = "title"><h1><b>BookSpace</b></h1></ul>
+  <% @coworkingspaces.each do |space| %>
+  <div class="card"> <%= link_to (image_tag space.pic, class: "card-img-top"), post %>
+    <div class="card-body">
+        <p class="card-text"><%= space.address %></p>
+        <%= link_to space.user.email, space.user, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<%end%>
