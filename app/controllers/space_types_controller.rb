@@ -4,14 +4,16 @@ class SpaceTypesController < ApplicationController
     @spacetypes = SpaceType.all
   end
   def new
-    @spacetypes = SpaceType.new
+    @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
+    @spacetype = SpaceType.new
   end
 
   def create
-    @spacetypes = SpaceType.new(spacetype_params)
-    @spacetypes.user_id = current_user.id
+    @spacetype = SpaceType.new(spacetype_params)
+    @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
+    @spacetype.coworkingspace_id = params[:coworkingspace_id]
       if @spacetype.save
-        redirect_to @spacetype
+        redirect_to coworkingspace_space_type_path(@coworkingspace,@spacetype)
       flash[:notice] = "New type of space created!"
       else
        redirect_back (fallback location: root_path)
@@ -19,9 +21,13 @@ class SpaceTypesController < ApplicationController
       end
   end
 
+  def show
+    @spacetype = SpaceType.find(params[:coworkingspace_id])
+  end
+
   private
   def spacetype_params
-    params.require(:spacetype).permit(:type, :pic)
+    params.require(:space_type).permit(:types_of_spaces, :pic)
   end
 
 end

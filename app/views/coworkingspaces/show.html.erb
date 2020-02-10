@@ -7,3 +7,9 @@
   <%= button_to "Delete", @coworkingspace, method: :delete %>
   <%= button_to "Edit This Post", "/coworkingspaces/#{@coworkingspace.id}/edit", :method => "get" %>
 <%end%>
+
+
+<% @coworkingspace.space_types.each do |space|%>
+<%= image_tag space.pic %>
+<%= space.types_of_spaces %>
+<%end%>

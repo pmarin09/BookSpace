@@ -1,5 +1,5 @@
-<%= form_with model: @spacetype do |f| %>
-<div> Type of Space : <%= f.text_field :type,required: true %> </div>
+<%= form_with model: [@coworkingspace, @spacetype] do |f| %>
+<div> Type of Space : <%= f.text_field :types_of_spaces,required: true %> </div>
 <div> Image: <%= f.file_field :pic, required: true %> </div>
 <%= f.submit %>
 <%end%>
