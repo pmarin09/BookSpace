@@ -1,10 +1,49 @@
-<ul class = "title"><h1><b>BookSpace</b></h1></ul>
-  <% @coworkingspaces.each do |space| %>
-  <div class="card"> <%= link_to (image_tag space.pic, class: "card-img-top"), post %>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+ <!-- Brand -->
+ <a class="navbar-brand" href="#"><h3>BookSpace</h3></a>
+ <!-- Links -->
+ <ul class="navbar-nav">
+   <li class="nav-item">
+     <a class="nav-link" href="/coworkingspaces/">Home</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link" href="#">Promotions</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link" href="#">Top Rated</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link" href="/coworkingspaces/new">Rent your Space</a>
+   </li>
+   <!-- Dropdown -->
+   <li class="nav-item dropdown">
+     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       Coworking Spaces
+     </a>
+     <div class="dropdown-menu">
+       <a class="dropdown-item" href="#">Desks</a>
+       <a class="dropdown-item" href="#">Rooms</a>
+       <a class="dropdown-item" href="#">Open Space</a>
+     </div>
+   </li>
+  </ul>
+  </nav>
+
+
+<p><% @coworkingspaces.each do |space| %> </p>
+<div class="card-deck">
+  <div class="card">
+    <%= link_to (image_tag space.pic, class: "card-img-top"), space %>
     <div class="card-body">
-        <p class="card-text"><%= space.address %></p>
-        <%= link_to space.user.email, space.user, class: "btn btn-primary" %>
+      <h5 class="card-title"><%= space.name %></h5>
+      <p class="card-text"><%= space.address %></p>
+      <p class="card-text"><%= space.spaces_qty %> spaces available</p>
+      <%= button_to "Book Now", "/coworkingspaces/#{space.id}", :method => "get", class: "btn btn-primary" %>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
     </div>
   </div>
-
+</div>
 <%end%>

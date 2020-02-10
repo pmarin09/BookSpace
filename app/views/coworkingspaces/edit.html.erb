@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
  <!-- Brand -->
  <a class="navbar-brand" href="#"><h3>BookSpace</h3></a>
@@ -29,12 +30,13 @@
   </ul>
   </nav>
 
-<div class="card"><%= image_tag @coworkingspace.pic, class: "card-img-top" %></div>
-<p>Name: <%= @coworkingspace.name %></p>
-<p>Address: <%= @coworkingspace.address %></p>
-<p>City: <%= @coworkingspace.city %></p>
-<p><%= @coworkingspace.spaces_qty %> spaces available</p>
-<% if current_user == @coworkingspace.user %>
-  <%= button_to "Delete", @coworkingspace, method: :delete %>
-  <%= button_to "Edit This Post", "/coworkingspaces/#{@coworkingspace.id}/edit", :method => "get" %>
-<%end%>
+  <%= form_for @coworkingspace do |f| %>
+      <%= image_tag @coworkingspace.pic, class: "my_pic" %>
+      <div class = "post_text"> <b> Edit Coworking Space</b>
+      <div> Name: <%= f.text_field :name %> </div>
+      <div> Image: <%= f.file_field :pic %> </div>
+      <div> Address: <%= f.text_area :address %> </div>
+      <div> City: <%= f.text_field :city %> </div>
+      <div> Amount of Spaces: <%= f.text_field :spaces_qty %> </div>
+      <%= f.submit%></div>
+  <%end%>
