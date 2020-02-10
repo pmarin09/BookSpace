@@ -17,6 +17,10 @@
     <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+    <%= render "layouts/header" %>
+    <div class="top">
     <%= yield %>
+    </div>
+
   </body>
 </html>

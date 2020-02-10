@@ -1,34 +1,3 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
- <!-- Brand -->
- <a class="navbar-brand" href="#"><h3>BookSpace</h3></a>
- <!-- Links -->
- <ul class="navbar-nav">
-   <li class="nav-item">
-     <a class="nav-link" href="/coworkingspaces/">Home</a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="#">Promotions</a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="#">Top Rated</a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="#">Rent your Space</a>
-   </li>
-   <!-- Dropdown -->
-   <li class="nav-item dropdown">
-     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-       Coworking Spaces
-     </a>
-     <div class="dropdown-menu">
-       <a class="dropdown-item" href="#">Desks</a>
-       <a class="dropdown-item" href="#">Rooms</a>
-       <a class="dropdown-item" href="#">Open Space</a>
-     </div>
-   </li>
-  </ul>
-  </nav>
-
 <div class="card"><%= image_tag @coworkingspace.pic, class: "card-img-top" %></div>
 <p>Name: <%= @coworkingspace.name %></p>
 <p>Address: <%= @coworkingspace.address %></p>
