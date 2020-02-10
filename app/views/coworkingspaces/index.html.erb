@@ -26,6 +26,10 @@
        <a class="dropdown-item" href="#">Rooms</a>
        <a class="dropdown-item" href="#">Open Space</a>
      </div>
+      </li>
+   <!-- Log Out -->
+    <li class="nav-item">
+     <a class = "nav-link" <%= link_to "Logout", destroy_user_session_path, method: :delete %>
    </li>
   </ul>
   </nav>
