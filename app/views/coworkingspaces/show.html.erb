@@ -1,15 +1,65 @@
-<div class="card"><%= image_tag @coworkingspace.pic, class: "card-img-top" %></div>
-<p>Name: <%= @coworkingspace.name %></p>
-<p>Address: <%= @coworkingspace.address %></p>
-<p>City: <%= @coworkingspace.city %></p>
-<p><%= @coworkingspace.spaces_qty %> spaces available</p>
-<% if current_user == @coworkingspace.user %>
-  <%= button_to "Delete", @coworkingspace, method: :delete %>
-  <%= button_to "Edit This Post", "/coworkingspaces/#{@coworkingspace.id}/edit", :method => "get" %>
-<%end%>
+<div class="jumbotron">
+  <div class="d-flex justify-content-center">
+    <div><%= image_tag @coworkingspace.pic, class: "header_image" %></div>
+  </div>
+</div>
 
+<div class="album py-5 bg-light">
+    <div class="d-flex justify-content-center">
+      <div class="row">
+       <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><image href="https://www.spacesworks.com/wp-content/uploads/2018/01/Spaces-Hofplein-Rotterdam-dedicated-desk-coworking-interior-design-1-720x800.jpg" width="100%" height="100%" </svg>
+            <div class="card-body">
+              <p class="card-text">Desks</p>
+              <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Desk", available: true).count  %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group btn-group-justified">
+                  <button type="button" class="btn btn-primary">Details</button>
+                  <button type="button" class="btn btn-primary">Book</button>
+                  <% if current_user == @coworkingspace.user %>
+                    <%= button_to "Delete", @coworkingspace, method: :delete %>
+                    <%= button_to "Edit This Post", "/coworkingspaces/#{@coworkingspace.id}/edit", :method => "get" %>
+                  <%end%>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><image href="https://solutions.rent/wp-content/uploads/2019/11/coworking-warszawa.jpg" width="100%" height="100%" </svg>
+            <div class="card-body">
+              <p class="card-text">Open Space</p>
+              <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Open Space", available: true).count  %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group btn-group-justified">
+                  <button type="button" class="btn btn-primary">Details</button>
+                  <button type="button" class="btn btn-primary">Book</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<% @coworkingspace.space_types.each do |space|%>
-<%= image_tag space.pic %>
-<%= space.types_of_spaces %>
-<%end%>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><image href="https://i.pinimg.com/originals/98/bc/97/98bc9721544398ae4844c4a718efaf3c.jpg" width="100%" height="100%" </svg>
+            <div class="card-body">
+              <p class="card-text">Meeting Rooms</p>
+              <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Meeting Room", available: true).count  %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group btn-group-justified">
+                  <button type="button" class="btn btn-primary">Details</button>
+                  <button type="button" class="btn btn-primary">Book</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+ </div>
+</div>

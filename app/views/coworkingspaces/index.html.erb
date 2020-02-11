@@ -1,16 +1,35 @@
-<p><% @coworkingspaces.each do |space| %> </p>
-<div class="card-deck">
-  <div class="card">
-    <%= link_to (image_tag space.pic, class: "card-img-top"), space %>
-    <div class="card-body">
-      <h5 class="card-title"><%= space.name %></h5>
-      <p class="card-text"><%= space.address %></p>
-      <p class="card-text"><%= space.spaces_qty %> spaces available</p>
-      <%= button_to "Book Now", "/coworkingspaces/#{space.id}", :method => "get", class: "btn btn-primary" %>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<main role="main">
+<div class="jumbotron">
+  <div class="d-flex justify-content-center">
+    <div><h1 class="display-3">Welcome to BookSpace</h1>
+    <p> Book a desk, open space or meetings rooms through our portal.</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button"> View Spaces»</a></p>
     </div>
   </div>
 </div>
-<%end%>
+
+<div class="d-flex justify-content-center">
+<div class="row">
+<p><% @coworkingspaces.each do |space| %> </p>
+  <div class="col-md-4">
+    <div class="card-deck">
+      <div class="card">
+        <%= image_tag space.pic, class: "card-img-top"%>
+        <div class="card-body">
+          <h5 class="card-title"><%= space.name %></h5>
+          <p class="card-text"><%= space.address %></p>
+          <p class="card-text"><%= space.spaces_qty %> spaces</p>
+          <%= button_to "Book Now", "/coworkingspaces/#{space.id}", :method => "get", class: "btn btn-primary" %>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+    </div>
+  <%end%>
+  </div>
+  </div>
+
+</main>

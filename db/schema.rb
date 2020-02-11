@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_193536) do
+ActiveRecord::Schema.define(version: 2020_02_11_201823) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(version: 2020_02_10_193536) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "coworking_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "username"
-    t.text "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "coworkingspaces", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -57,11 +49,21 @@ ActiveRecord::Schema.define(version: 2020_02_10_193536) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "space_types", force: :cascade do |t|
+  create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "reservation_start"
+    t.datetime "reservation_end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
     t.integer "coworkingspace_id"
     t.string "types_of_spaces"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "available", default: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 root to: "coworkingspaces#index"
 resources :coworkingspaces do
-  resources :space_types
+  resources :rooms
 end
 resources :users, only: [:show, :destroy]
 

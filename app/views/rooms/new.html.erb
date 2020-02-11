@@ -1,0 +1,5 @@
+<%= form_with model: [@coworkingspace, @room] do |f| %>
+<div> Type of Space : <%= f.select :types_of_spaces,["Desk","Open Space","Meeting Room"],required: true %> </div>
+<div> Image: <%= f.file_field :pic, required: true %> </div>
+<%= f.submit %>
+<%end%>

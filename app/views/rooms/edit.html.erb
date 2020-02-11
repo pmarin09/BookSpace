@@ -1,0 +1,8 @@
+<a class = "top" <%= form_with model: @room do |f| %>
+      <%= image_tag @room.pic, class: "my_pic" %>
+      <div class = "post_text"> <b> Edit Space Type</b>
+      <div> Type of Space: <%= f.text_field :types_of_spaces %> </div>
+      <div> Image: <%= f.file_field :pic %> </div>
+      <div> Available: <%= f.boolean :available %> </div>
+      <%= f.submit%></div>
+  <%end%>
