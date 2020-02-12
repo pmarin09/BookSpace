@@ -7,5 +7,5 @@ resources :coworkingspaces do
   resources :reservations
 end
 resources :users, only: [:show, :destroy]
-
+get "/rooms/", to: "rooms#index"
 end

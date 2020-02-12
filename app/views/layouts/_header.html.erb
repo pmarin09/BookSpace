@@ -14,14 +14,14 @@
      <a class="nav-link" href="/coworkingspaces/new">Create your Space</a>
    </li>
    <!-- Dropdown -->
-   <li class="nav-item dropdown">
-     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+   <li class="nav-item dropdown show">
+     <a class="nav-link dropdown-toggle"role="button" href="#" id="navbardrop" data-toggle="dropdown">
        Book Spaces
      </a>
-     <div class="dropdown-menu">
-       <a class="dropdown-item" href="#">Desks</a>
-       <a class="dropdown-item" href="#">Rooms</a>
-       <a class="dropdown-item" href="#">Open Space</a>
+     <div class="dropdown-menu" aria-labelledby="navbardrop">
+       <%= link_to "Desks", "/rooms?types_of_spaces=Desk&amp;", class: "dropdown-item"  %>
+       <%= link_to "Open Space", "/rooms?types_of_spaces=Open Space&amp;", class: "dropdown-item"  %>
+       <%= link_to "Meeting Room", "/rooms?types_of_spaces=Meeting Room&amp;", class: "dropdown-item"  %>
      </div>
       </li>
    <!-- Log Out -->

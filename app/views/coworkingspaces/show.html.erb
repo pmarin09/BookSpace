@@ -4,7 +4,6 @@
   </div>
 </div>
 
-<div class="album py-5 bg-light">
     <div class="d-flex justify-content-center">
       <div class="row">
        <div class="col-md-4">
@@ -15,14 +14,8 @@
               <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Desk", available: true).count  %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group btn-group-justified">
-                  <button type="button" class="btn btn-primary">Details</button>
-                  <button type="button" class="btn btn-primary">Book</button>
-                  <% if current_user == @coworkingspace.user %>
-                    <%= button_to "Delete", @coworkingspace, method: :delete %>
-                    <%= button_to "Edit This Post", "/coworkingspaces/#{@coworkingspace.id}/edit", :method => "get" %>
-                  <%end%>
+                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Desk" }, class: "btn btn-primary"  %></button>
                 </div>
-                <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>
@@ -35,10 +28,8 @@
               <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Open Space", available: true).count  %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group btn-group-justified">
-                  <button type="button" class="btn btn-primary">Details</button>
-                  <button type="button" class="btn btn-primary">Book</button>
+                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Open Space" }, class: "btn btn-primary" %></button>
                 </div>
-                <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>
@@ -52,10 +43,8 @@
               <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Meeting Room", available: true).count  %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group btn-group-justified">
-                  <button type="button" class="btn btn-primary">Details</button>
-                  <button type="button" class="btn btn-primary">Book</button>
+                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Meeting Room" }, class:"btn btn-primary"  %></button>
                 </div>
-                <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>

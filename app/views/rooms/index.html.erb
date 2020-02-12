@@ -1,0 +1,3 @@
+<p><% @roomlist.each do |r| %> </p>
+<%= image_tag(r.pic, class: "card-img-top" ) if r.pic.attached? %>
+<%end%>

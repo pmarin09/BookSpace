@@ -1,0 +1,9 @@
+<section class = "forms text-center">
+    <p class="h4 mb-4">Make your Reservation</p>
+    <%= form_with model: [@coworkingspace, @reservation] do |f| %>
+      <div> Start Date: <%= f.date_field :reservation_start,required: true, class:"form-control mb-4"  %> </div>
+      <div> End Date: <%= f.date_field :reservation_end, required: true, class:"form-control mb-4" %> </div>
+      <div> Choose <%= @chooseroom %>: <%= f.select :room_id, @coworkingspace.rooms.where(types_of_spaces: @chooseroom, available: true).collect {|room| [ "#{room.types_of_spaces} #{room.id}", room.id ] },required: true, class:"form-control mb-4" %> </div>
+      <p><div><button class = "btn btn-info btn-block" type="submit">Book</button></div></p>
+    <%end%>
+</section>

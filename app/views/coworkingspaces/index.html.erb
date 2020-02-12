@@ -20,7 +20,7 @@
           <h5 class="card-title"><%= space.name %></h5>
           <p class="card-text"><%= space.address %></p>
           <p class="card-text"><%= space.spaces_qty %> spaces</p>
-          <%= button_to "Book Now", "/coworkingspaces/#{space.id}", :method => "get", class: "btn btn-primary" %>
+          <%= button_to "View", "/coworkingspaces/#{space.id}", :method => "get", class: "btn btn-primary" %>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>

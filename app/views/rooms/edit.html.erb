@@ -1,8 +1,9 @@
-<a class = "top" <%= form_with model: @room do |f| %>
-      <%= image_tag @room.pic, class: "my_pic" %>
-      <div class = "post_text"> <b> Edit Space Type</b>
-      <div> Type of Space: <%= f.text_field :types_of_spaces %> </div>
-      <div> Image: <%= f.file_field :pic %> </div>
-      <div> Available: <%= f.boolean :available %> </div>
-      <%= f.submit%></div>
-  <%end%>
+<section class = "forms text-center">
+      <p class="h4 mb-4">Edit Room</p>
+      <%= form_with model: [@coworkingspace, @room] do |f| %>
+      <div> Type of Space : <%= f.select :types_of_spaces,["Desk","Open Space","Meeting Room"],required: true, class:"form-control mb-4" %> </div>
+      <div> Image: <%= f.file_field :pic, class:"form-control mb-4" %> </div>
+      <div> Available: <%= f.check_box :available, class: "form-control mb-4" %> </div>
+      <p><div><button class = "btn btn-warning btn-block" type="submit">Update Room</button></div></p>
+      <%end%>
+  </section>

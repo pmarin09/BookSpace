@@ -1,5 +1,8 @@
-<%= form_with model: [@coworkingspace, @room] do |f| %>
-<div> Type of Space : <%= f.select :types_of_spaces,["Desk","Open Space","Meeting Room"],required: true %> </div>
-<div> Image: <%= f.file_field :pic, required: true %> </div>
-<%= f.submit %>
-<%end%>
+<section class = "forms text-center">
+    <p class="h4 mb-4">Create a Room</p>
+    <%= form_with model: [@coworkingspace, @room] do |f| %>
+    <div> Type of Space : <%= f.select :types_of_spaces,["Desk","Open Space","Meeting Room"],required: true, class:"form-control mb-4" %> </div>
+    <p><div> Image: <%= f.file_field :pic, required: true,  class:"form-control mb-4" %> </div></p>
+    <p><div><button class = "btn btn-info btn-block" type="submit">Create</button></div></p>
+    <%end%>
+</section>

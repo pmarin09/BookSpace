@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
     @rooms = Room.all
+    @roomlist = Room.where(types_of_spaces: params[:types_of_spaces], available: true)
   end
   def new
     @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
@@ -24,27 +25,23 @@ class RoomsController < ApplicationController
   end
   def edit
     @room = Room.find(params[:id])
-    if current_user != @room.user
-      sign_out current_user
-      redirect_to root_path
-      flash[:notice] = "Unauthorized Request"
-    end
+    @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
   end
   def update
     @room = Room.find(params[:id])
     if current_user == @room.user
       @room.update(room_params)
-      redirect_to "/coworkingspaces/#{@coworkingspace.id}/space_types/#{@room.id}/edit"
-      flash[:notice] = "Coworking Space Succesfully Updated"
+      redirect_to "/coworkingspaces/#{@coworkingspace.id}/rooms/#{@room.id}/edit"
+      flash[:notice] = "Room Succesfully Updated"
     else
       redirect_back(fallback_location: root_path)
-      flash[:alert] = "Not authorized to edit this Coworking Space"
+      flash[:alert] = "Not authorized to edit this Room"
     end
   end
 
   private
   def room_params
-    params.require(:room).permit(:types_of_spaces, :pic)
+    params.require(:room).permit(:types_of_spaces, :pic, :available)
   end
 
 end
