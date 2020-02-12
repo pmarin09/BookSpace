@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 root to: "coworkingspaces#index"
 resources :coworkingspaces do
   resources :rooms
+  resources :reservations
 end
 resources :users, only: [:show, :destroy]
 
