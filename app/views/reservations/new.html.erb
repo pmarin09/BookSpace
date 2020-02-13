@@ -1,5 +1,5 @@
 <section class = "forms text-center">
-    <p class="h4 mb-4">Make your Reservation</p>
+    <p class="h4 mb-4">Complete your reservation at <%= @coworkingspace.name %></p>
     <%= form_with model: [@coworkingspace, @reservation] do |f| %>
       <div> Start Date: <%= f.date_field :reservation_start,required: true, class:"form-control mb-4"  %> </div>
       <div> End Date: <%= f.date_field :reservation_end, required: true, class:"form-control mb-4" %> </div>

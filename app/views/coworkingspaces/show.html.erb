@@ -14,7 +14,7 @@
               <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Desk", available: true).count  %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group btn-group-justified">
-                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Desk" }, class: "btn btn-primary"  %></button>
+                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Desk"}, class: "btn btn-primary"  %></button>
                 </div>
               </div>
             </div>
@@ -28,7 +28,7 @@
               <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Open Space", available: true).count  %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group btn-group-justified">
-                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Open Space" }, class: "btn btn-primary" %></button>
+                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Open Space"}, class: "btn btn-primary" %></button>
                 </div>
               </div>
             </div>
@@ -43,7 +43,7 @@
               <p class="card-text">Available: <%=@coworkingspace.rooms.where(:types_of_spaces =>"Meeting Room", available: true).count  %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group btn-group-justified">
-                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Meeting Room" }, class:"btn btn-primary"  %></button>
+                  <button type="button" class="btn btn-primary"><%= button_to "Book", "/coworkingspaces/#{@coworkingspace.id}/reservations/new", :method => "get", params: { :types_of_spaces => "Meeting Room"}, class:"btn btn-primary"  %></button>
                 </div>
               </div>
             </div>
