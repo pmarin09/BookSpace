@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
     if @reservation.save
       @reservation.room.update(available: false)
-      render :new
+      redirect_to root_path
      flash[:notice] = "Your Reservation is Completed"
     else
      redirect_back fallback_location: root_path

@@ -28,8 +28,9 @@ class RoomsController < ApplicationController
     @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
   end
   def update
+    @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
     @room = Room.find(params[:id])
-    if current_user == @room.user
+    if current_user == @coworkingspace.user
       @room.update(room_params)
       redirect_to "/coworkingspaces/#{@coworkingspace.id}/rooms/#{@room.id}/edit"
       flash[:notice] = "Room Succesfully Updated"

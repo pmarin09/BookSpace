@@ -57,3 +57,7 @@ height: 300px;
   border-color: grey;
 	border-width: 0.5px;
 }
+
+.alert{
+	position: absolute;
+}
