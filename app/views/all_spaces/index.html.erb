@@ -1,11 +1,11 @@
 <div class="d-flex justify-content-center text-center">
-  <p><% @roomlist.each do |r| %> </p>
+  <p><% @all_spaces.each do |r| %> </p>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
           </div>
           <div class="card-body">
             <%= image_tag(r.pic, class: "card-img-top" ) if r.pic.attached? %>
-            <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
+            <h3 class="card-title pricing-card-title"><b><%=r.types_of_spaces%></b> <small class="text-muted"></small></h3>
             <ul class="list-unstyled mt-3 mb-4">
               <li><b><%=r.coworkingspace.name %></b></li>
               <li><b><%=r.coworkingspace.address %></b></li>

@@ -1,5 +1,6 @@
 <section class = "forms text-center">
-    <p class="h4 mb-4">Complete your reservation at <%= @coworkingspace.name %></p>
+    <p class="h4 mb-4">Complete your reservation at: </p> <p class = "h4 mb-4"> <b><%= @coworkingspace.name %> </b></p>
+    <%=image_tag  @coworkingspace.rooms.where(types_of_spaces: @chooseroom, available: true).first.pic, :size => '520x360' %>
     <%= form_with model: [@coworkingspace, @reservation] do |f| %>
       <div> Start Date: <%= f.date_field :reservation_start,required: true, class:"form-control mb-4"  %> </div>
       <div> End Date: <%= f.date_field :reservation_end, required: true, class:"form-control mb-4" %> </div>

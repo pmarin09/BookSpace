@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all
     @roomlist = Room.where(types_of_spaces: params[:types_of_spaces], available: true)
+    @coworkingspace = Coworkingspace.all
   end
   def new
     @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])

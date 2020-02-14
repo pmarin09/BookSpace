@@ -66,3 +66,7 @@ height: 300px;
 	display: grid;
 	flex-wrap: wrap;
 }
+
+.jumbotron{
+	background: rgb(224, 224, 224);
+}

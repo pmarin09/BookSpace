@@ -51,4 +51,36 @@
         </div>
     </div>
  </div>
+
+<div class = "card-text text-center"><p><h1><b>Manage Your Space</b></h1><p></div>
+<div class = "container margin-top:50px;">
+  <div class = "card-text text-center"><h3> Reserved Rooms </h3></div>
+    <div class = "container-fluid">
+    <% if current_user == @coworkingspace.user %>
+      <div class="row mb-3 shadow-lg">
+        <div class="col-4 themed-grid-col text-center"><h6><b>Desks</b></h6></div>
+        <div class="col-4 themed-grid-col text-center"><h6><b>Open Spaces</b></h6></div>
+        <div class="col-4 themed-grid-col text-center"><h6><b>Meeting Rooms</b></h6></div>
+        <div class="col-4 themed-grid-col text-center"> <%= @coworkingspace.rooms.where(:types_of_spaces => "Desk", available: false).count %></div>
+        <div class="col-4 themed-grid-col text-center"> <%= @coworkingspace.rooms.where(:types_of_spaces => "Open Space", available: false).count %></div>
+        <div class="col-4 themed-grid-col text-center"><%= @coworkingspace.rooms.where(:types_of_spaces => "Meeting Room", available: false).count %></div>
+      </div>
+    </div>
+
+  <div class = "card-text text-center"><h3> Reservations Tracker</h3></div>
+    <div class = "container-fluid">
+      <div class="row mb-3 shadow-lg">
+        <div class="col-4 themed-grid-col text-center "> <h6><b> Room </b></h6></div>
+        <div class="col-4 themed-grid-col text-center "><h6><b> Start Date</b></h6> </div>
+        <div class="col-4 themed-grid-col text-center "><h6><b> End Date </b></h6></div>
+        <p><% @coworkingspace.rooms.order(:types_of_spaces).each do |space| %> </p>
+          <%if space.reservations != [] %>
+            <div class="col-4 themed-grid-col text-center "><%= "#{space.types_of_spaces} #{space.id}" %> </div>
+            <div class="col-4 themed-grid-col text-center "><%= "#{space.reservations.last.reservation_start.strftime("%B %d %Y")}"%> </div>
+            <div class="col-4 themed-grid-col text-center "><%="#{space.reservations.last.reservation_end.strftime("%B %d %Y")}" %> </div>
+            <%end%>
+        <%end%>
+      <%end%>
+      </div>
+  </div>
 </div>
