@@ -13,13 +13,18 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @coworkingspace = Coworkingspace.find(params[:coworkingspace_id])
     @room.coworkingspace_id = params[:coworkingspace_id]
+    if current_user == @coworkingspace.user
       if @room.save
         redirect_to coworkingspace_room_path(@coworkingspace,@room)
       flash[:notice] = "New type of space created!"
       else
-       redirect_back (fallback location: root_path)
+       redirect_back(fallback_location: root_path)
        flash[:alert] = "Space type creation failed"
       end
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = "You are not authorized to create this room"
+    end
   end
   def show
     @room = Room.find(params[:id])
